@@ -127,11 +127,9 @@ module gridfinityInit(gx, gy, h, h0 = 0, l = l_grid, sl = 0) {
     $dh0 = h0;
     $style_lip = sl;
     difference() {
-        color("firebrick")
         block_bottom(h0==0?$dh-0.1:h0, gx, gy, l);
         children();
     }
-    color("royalblue")
     block_wall(gx, gy, l) {
         if ($style_lip == 0) profile_wall(h);
         else profile_wall2(h);

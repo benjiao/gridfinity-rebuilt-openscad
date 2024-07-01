@@ -85,20 +85,19 @@ div_base_y = 0;
 
 
 // ===== IMPLEMENTATION ===== //
+module renderGridfinityBase(){
+    gridfinityInit(gridx, gridy, height(gridz, gridz_define, style_lip, enable_zsnap), height_internal, sl=style_lip) {
 
-color("tomato") {
-gridfinityInit(gridx, gridy, height(gridz, gridz_define, style_lip, enable_zsnap), height_internal, sl=style_lip) {
+        if (divx > 0 && divy > 0) {
 
-    if (divx > 0 && divy > 0) {
+            cutEqual(n_divx = divx, n_divy = divy, style_tab = style_tab, scoop_weight = scoop);
 
-        cutEqual(n_divx = divx, n_divy = divy, style_tab = style_tab, scoop_weight = scoop);
+        } else if (cdivx > 0 && cdivy > 0) {
 
-    } else if (cdivx > 0 && cdivy > 0) {
-
-        cutCylinders(n_divx=cdivx, n_divy=cdivy, cylinder_diameter=cd, cylinder_height=ch, coutout_depth=c_depth, orientation=c_orientation, chamfer=c_chamfer);
+            cutCylinders(n_divx=cdivx, n_divy=cdivy, cylinder_diameter=cd, cylinder_height=ch, coutout_depth=c_depth, orientation=c_orientation, chamfer=c_chamfer);
+        }
     }
-}
-gridfinityBase(gridx, gridy, l_grid, div_base_x, div_base_y, style_hole, only_corners=only_corners);
+    gridfinityBase(gridx, gridy, l_grid, div_base_x, div_base_y, style_hole, only_corners=only_corners);
 }
 
 
